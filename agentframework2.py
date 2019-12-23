@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec 20 19:31:00 2019
 
-@author: a7md_
 """
 
 # -*- coding: utf-8 -*-
@@ -51,4 +47,14 @@ class Agent:
                  self.enviroment[self.y][self.x]+= self.store
                  self.store = 0
                 
-            
+    def share_with_neighbours(self, neighbourhood):
+        for agent in self.agents:
+            distance = self.distance_between(agent)
+            if distance <= neighbourhood:
+                average_store = (self.store + agent.store)/ 2
+                self.store = average_store
+                agent.store = average_store
+#                print("sharing " + str(distance) + " " + str(average_store))
+                
+    def distance_between(self, agent):
+        return ((self.y- agent.y)**2 +(self.x - agent.x)**2)**0.5

@@ -36,7 +36,7 @@ with open("in.txt") as file:
         
 # Make the agents.
 for i in range(num_of_agents):
-    agents.append(agentframework1.Agent(random.randint(0,len(enviroment)-1),random.randint(0,len(enviroment)-1), enviroment))
+    agents.append(agentframework1.Agent(random.randint(0,len(enviroment)-1),random.randint(0,len(enviroment)-1), enviroment, agents))
 
 # Move the agents.
 for j in range(num_of_iterations):
