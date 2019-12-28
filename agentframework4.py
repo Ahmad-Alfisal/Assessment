@@ -39,7 +39,7 @@ class Agent:
     def eat(self):
             if self.enviroment[self.y][self.x] >10:
                 self.enviroment[self.y][self.x]-= 10
-                self.store+= 1
+                self.store+= 10
             else:
                 self.store +=   self.enviroment[self.y][self.x]
                 self.enviroment[self.y][self.x]=0
