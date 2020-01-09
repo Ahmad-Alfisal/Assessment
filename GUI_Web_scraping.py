@@ -1,11 +1,4 @@
 
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec 20 17:31:45 2019
-
-@author: a7md_
-
-"""
 import random
 import matplotlib.pyplot
 import matplotlib
