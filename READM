@@ -39,7 +39,6 @@ import matplotlib.pyplot                 ### library for creating charts ###
 import matplotlib
 matplotlib.use ("TkAgg")                 ### Windows Library ### 
 import agentframework4                   ### framework file ### 
-import sys                               ### a library that helps run the data from Pormpt screen ### 
 import matplotlib.animation              ### Animation Library ### 
 import tkinter                           ### Windows Library Menus Library ### 
 import requests                          ### library to retrieve data from the internet ### 
@@ -89,7 +88,7 @@ def update (F):                   ### defines the function of the animation ###
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     for i in range (num_of_agents):                                                ### Every agents has an order like this ### 
-        matplotlib.pyplot.scatter (agents [i] .y, agents [i] .x, color = "yellow") ### command to draw and color each point for each customer ### 
+        matplotlib.pyplot.scatter (agents [i] .y, agents [i] .x, color = "yellow") ### command to draw and color each point for each agent ### 
     matplotlib.pyplot.imshow (enviroment)                                          ### Show the background graphic ### 
     
     for agent in agents:         ### stop motion condition ### 
@@ -106,7 +105,7 @@ def gen_function ():            ### number of iterations ###
         for row in enviroment:            ### for each line in the environment ### 
             for value in row:             ### for each part in a line ### 
                 file.write (f "{value},") ### Write this vertex in this file ### 
-            file.write ("\ n")            ### If all values ​​on the line end, create a new line ### 
+            file.write ("\ n")            ### If all values on the line end, create a new line ### 
 
     with open ("stores.txt", "a") as file:     ### Create  a stores file ### 
         for agent in agents:                   ### for each agent in agents do the following ### 
@@ -116,22 +115,10 @@ def gen_function ():            ### number of iterations ###
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
-                     **### the following make the model run in spider or any python operator and in the Pormpt screen ###**    
- 
-try: try it
-    num_of_agents = int (sys.argv [1])     ### Read the first value from the Pormpt screen ### 
-except:
-    num_of_agents = 10                     ### if there is no value to use this number 10 ### 
 
-try:
-    num_of_iterations = int (sys.argv [2]) ### Read the second value from the Pormpt screen ### 
-except:
-    num_of_iterations = 100                ### if there is no value using this number 100 ### 
-
-try:
-    neighborhood = int (sys.argv [3])      ### Read the third value from the Pormpt screen ### 
-except:
-    neighborhood = 20                      ### if there is no value use this number 20 ### 
+num_of_agents = 10                     ### the number of the agents ### 
+num_of_iterations = 100                ### the number of the movement or iterations ### 
+neighborhood = 20                      ### the sharing distance ### 
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -165,7 +152,7 @@ model_menu.add_command (label = "Run Model", command = run) ###  Add a command i
 
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg (fig, master = root)
 canvas._tkcanvas.pack (side = tkinter.TOP, fill = tkinter.BOTH, expand = 1)
-mainloop ()                                                                     ### Keep window open until closed ### 
+mainloop ()                           ### Keep window open until closed ### 
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -174,11 +161,11 @@ mainloop ()                                                                     
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-                                                                     the framework File
+						     the framework File
 
-                                                                 **### agentframework4.py ###**
+						 **### agentframework4.py ###**
 
-                                                            **### the agents creation function ###**
+					    **### the agents creation function ###**
     
     def __init __ (self, x0, y0, enviroment, agents): 
         self.x = x0                                   ### Determine the value of the x ###
