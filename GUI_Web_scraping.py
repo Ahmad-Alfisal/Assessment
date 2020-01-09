@@ -27,8 +27,6 @@ def load_data_from_web():
     soup = bs4.BeautifulSoup(content, 'html.parser')
     td_ys = soup.find_all(attrs={"class" : "y"})
     td_xs = soup.find_all(attrs={"class" : "x"})
-#    print(td_ys)
-#    print(td_xs) 
     
     for i in range(num_of_agents):
         y = int(td_ys[i].text)
@@ -42,7 +40,7 @@ carry_on = True
 def update(F):
     global carry_on
     fig.clear()   
-    # Move the agents.
+
     for j in range(num_of_iterations):
         random.shuffle(agents)
         for i in range(num_of_agents):
@@ -91,24 +89,11 @@ except:
     neighbourhood = 20
 
 
-" as above we add how many agents we want and how many steps they move "
-
 with open("in.txt") as file:
     for line in file:
         row = list(eval(line))
         enviroment.append(row)
         
-# Make the agents.
-
-
-    
-"as above the agent shoud move and eat and shering(change) ever time we run it."
-
-
-
-        
-
-
 
 def run():
     load_data_from_web()
