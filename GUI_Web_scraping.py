@@ -4,7 +4,6 @@ import matplotlib.pyplot
 import matplotlib
 matplotlib.use("TkAgg")
 import agentframework4
-import sys
 import matplotlib.animation 
 import tkinter
 import requests
@@ -66,20 +65,10 @@ def gen_function():
             file.write(f"{agent.store},")
         file.write("\n")
         
-try:
-    num_of_agents = int(sys.argv[1])
-except:
-    num_of_agents = 10 
 
-try:
-    num_of_iterations = int(sys.argv[2]) 
-except:
-    num_of_iterations = 100
-
-try:
-    neighbourhood = int(sys.argv[3]) 
-except:
-    neighbourhood = 20
+num_of_agents = 10 
+num_of_iterations = 100
+neighbourhood = 20
 
 
 with open("in.txt") as file:
